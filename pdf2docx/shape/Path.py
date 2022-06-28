@@ -243,7 +243,7 @@ class Path:
         self.path_type = raw['type'] # s, f, or fs
 
         # always close path if fill, otherwise, depends on property 'closePath'
-        close_path = True if self.is_fill else raw['closePath']
+        close_path = True if self.is_fill else raw.get("closePath", False)
 
         # path segments
         self.items = [] # type: list[Segments]
